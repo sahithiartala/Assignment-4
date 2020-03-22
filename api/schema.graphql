@@ -6,6 +6,7 @@ enum category{
     Accessories
 }
 type Product{
+    _id: ID!
     id: Int!
     category: category!
 	name: String!
@@ -15,6 +16,7 @@ type Product{
 }
 
 input ProductInputs {
+
   
     category: category!
 	name: String!

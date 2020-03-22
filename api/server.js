@@ -34,16 +34,27 @@ async function getNextSequence(name) {
 }
 
 async function productList() {
-
   const products = await db.collection('products').find({}).toArray();
+  console.log(products);
   return products;
-  
-
 }
+
+async function getNextSequence(name) {
+
+  const result = await db.collection('counters').findOneAndUpdate(
+    { _id: name },
+    { $inc: { current: 1 } },
+    { returnOriginal: false },
+  );
+  return result.value.current;
+}
+
 async function addProduct(_, { product }) {
  
   //product.id = productDB.length + 1;
+  console.log('Added new product to inventory')
   product.id = await getNextSequence('products');
+  //console.log(newProduct.id);
   const result = await db.collection('products').insertOne(product);
   const savedProduct = await db.collection('products')
     .findOne({ _id: result.insertedId });
@@ -52,8 +63,6 @@ async function addProduct(_, { product }) {
   //return product;
 }
 
-  
-
 async function connectToDb() {
   const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
   await client.connect();
@@ -61,10 +70,8 @@ async function connectToDb() {
   db = client.db();
 }
 
-
-
 const server = new ApolloServer({
-  typeDefs: fs.readFileSync('./server/schema.graphql', 'utf-8'),
+  typeDefs: fs.readFileSync('schema.graphql', 'utf-8'),
   resolvers,
 });
 

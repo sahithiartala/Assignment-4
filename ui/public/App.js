@@ -17,7 +17,7 @@ class ProductList extends React.Component {
       id name Price category Image
     }
   }`;
-    const response = await fetch('/graphql', {
+    const response = await fetch(window.ENV.UI_API_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ class ProductList extends React.Component {
         id
       }
     }`;
-    const response = await fetch('/graphql', {
+    const response = await fetch(window.ENV.UI_API_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
