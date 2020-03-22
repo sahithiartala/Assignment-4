@@ -1,0 +1,58 @@
+table {
+   
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 50%;
+
+  }
+  
+  th, td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 5px;
+    font-family: "Arial";
+  }
+  h2{
+    font-family: "Arial";
+  }
+  h4{
+    
+    font-family: "Arial";
+      
+  }
+  input[type=text] {
+    
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+   
+  }
+  select {
+    
+    padding: 10px 10px;
+   
+    box-sizing: border-box;
+}
+label{
+    padding-top:5px;
+}
+form{
+    width:50%;
+}
+.wrapper_1{
+  float:left;
+  font-family: "Arial";
+}
+.wrapper_2{
+  float:right;
+  font-family: "Arial";
+}
+button{
+    box-sizing: border-box;
+    border: 1px solid black;
+     padding: 10px 20px;
+     text-align: center;
+     
+     display: inline-block;
+     font-size: 16px;
+}
