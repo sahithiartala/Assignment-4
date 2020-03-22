@@ -1,14 +1,19 @@
+/* eslint linebreak-style: ["error", "windows"] */
+
+/* eslint no-restricted-globals: "off" */
+
 const { MongoClient } = require('mongodb');
+
 const url = 'mongodb+srv://sahithiartala:SanDiegO15@mongodb-bqwk5.mongodb.net/producttracker?retryWrites=true&w=majority';
 
 function testWithCallbacks(callback) {
-    console.log('\n--- testWithCallbacks ---');
-    const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
-    client.connect(function(err, client) {
-      if (err) {
-        callback(err);
-        return;
-      }
+  console.log('\n--- testWithCallbacks ---');
+  const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+  client.connect(function(err, client) {
+    if (err) {
+      callback(err);
+      return;
+    }
       console.log('Connected to MongoDB');
       const db = client.db();
       const collection = db.collection('employees');

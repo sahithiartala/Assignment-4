@@ -23,22 +23,22 @@ class ProductList extends React.Component {
     this.setState({ products: result.data.productList });
   }
   
-  async createProduct(product) {
-    const query = `mutation addProduct($product: ProductInputs!) {
-      addProduct(product: $product) {
+  async createProduct(newProduct) {
+    const query = `mutation addProduct($newProduct: ProductInputs!) {
+      addProduct(product: $newProduct) {
         id
       }
     }`;
     const response = await fetch(window.ENV.UI_API_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json'},
-    body: JSON.stringify({ query, variables: { product }  })
+    body: JSON.stringify({ query, variables: { newProduct }  })
   });
  if(response){this.loadData();}
  }
 
   render() {
-    return (
+    return ( 
       <React.Fragment>
         <h2>My Company Inventory</h2>
         <h4> Showing all the available products</h4>

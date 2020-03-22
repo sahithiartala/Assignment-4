@@ -32,9 +32,9 @@ class ProductList extends React.Component {
     });
   }
 
-  async createProduct(product) {
-    const query = `mutation addProduct($product: ProductInputs!) {
-      addProduct(product: $product) {
+  async createProduct(newProduct) {
+    const query = `mutation addProduct($newProduct: ProductInputs!) {
+      addProduct(product: $newProduct) {
         id
       }
     }`;
@@ -46,7 +46,7 @@ class ProductList extends React.Component {
       body: JSON.stringify({
         query,
         variables: {
-          product
+          newProduct
         }
       })
     });
