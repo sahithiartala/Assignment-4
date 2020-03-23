@@ -31,7 +31,7 @@ async function getNextSequence(name) {
 
 async function addProduct(_, { product }) {
   //  product.id = productDB.length + 1;
-  const newProduct = Object.assign({}, product);
+  const newProduct = { ...product };
   console.log('Added new product to inventory');
   newProduct.id = await getNextSequence('products');
   //  console.log(newProduct.id);

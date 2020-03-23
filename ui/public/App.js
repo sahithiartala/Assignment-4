@@ -1,3 +1,14 @@
+/* eslint "react/react-in-jsx-scope": "off" */
+
+/* globals React ReactDOM */
+
+/* eslint "react/jsx-no-undef": "off" */
+
+/* eslint "no-alert": "off" */
+
+/* eslint linebreak-style: ["error", "windows"] */
+
+/* eslint no-restricted-globals: "off" */
 class ProductList extends React.Component {
   constructor() {
     super();
@@ -68,6 +79,7 @@ class ProductList extends React.Component {
 
 function ProductTable(props) {
   {
+    // eslint-disable-next-line max-len
     const productRows = props.products.map(product => React.createElement(ProductRow, {
       key: product.id,
       product: product
@@ -83,7 +95,7 @@ function ProductRow(props) {
     const product = props.product;
     return React.createElement("tr", null, React.createElement("td", null, product.name), React.createElement("td", null, product.category), React.createElement("td", null, product.Price), React.createElement("td", null, React.createElement("a", {
       href: product.Image,
-      target: "_blank"
+      target: "blank"
     }, "View")));
   }
 }
@@ -108,9 +120,9 @@ class ProductAdd extends React.Component {
       category: form.category.value
     };
     this.props.createProduct(product);
-    form.Product_Name.value = "";
+    form.Product_Name.value = '';
     form.Price.value = "$", form.Image_URL.value = "";
-    form.category.value = "";
+    form.category.value = '';
   }
 
   handlepriceChange() {
@@ -129,7 +141,7 @@ class ProductAdd extends React.Component {
       type: "text",
       name: "Product_Name",
       placeholder: "Product Name"
-    }), React.createElement("br", null), React.createElement("label", null, "Price Per Unit "), " ", React.createElement("br", null), React.createElement("input", {
+    }), React.createElement("br", null), React.createElement("label", null, "Price Per Unit "), React.createElement("br", null), React.createElement("input", {
       type: "text",
       name: "Price",
       placeholder: "Price",
@@ -153,7 +165,7 @@ class ProductAdd extends React.Component {
       value: "Sweaters"
     }, "Sweaters"), React.createElement("option", {
       value: "Accessories"
-    }, "Accessories")), " ", React.createElement("br", null), React.createElement("label", null, "Image_URL"), React.createElement("br", null), React.createElement("input", {
+    }, "Accessories")), React.createElement("br", null), React.createElement("label", null, "Image_URL"), React.createElement("br", null), React.createElement("input", {
       type: "text",
       name: "Image_URL",
       placeholder: "URL"
